@@ -209,7 +209,7 @@ class _GAN(abc.ABC):
             self.D_loss = tf.reduce_mean(self.D_fake_logits) - tf.reduce_mean(self.D_real_logits)
             self.G_loss = -tf.reduce_mean(self.D_fake_logits)
             self.lambda_gp = tf.placeholder_with_default(10., shape=(), name='lambda_gp_ph')
-            self.D_loss += self.lambda_gp * gradient_penalty
+            self.D_loss += self.lambda_gp * gradient_penalty * tf.maximum(0., -self.D_loss)
 
         else:
             cross_entropy = tf.nn.sigmoid_cross_entropy_with_logits

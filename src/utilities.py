@@ -109,7 +109,7 @@ class PlotGenSamples():
                 #self.ax[irow, icol].plot(lambdas[i], samples[i])
                 i = i + 1
         plt.xlabel('Wavelength [A]')
-        plt.savefig('/fred/oz012/Bruno/figs/{}.png'.format(name))
+        plt.savefig('/fred/oz012/Colin/bruno/figs/{}.png'.format(name))
         plt.close()
 
     def plot_mnist(self, samples, name):
